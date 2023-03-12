@@ -49,5 +49,11 @@ public class UpdateGraph {
         }
 
         sc.close();
+
+        System.out.println("\n");
+
+        MaxFlow m = new MaxFlow();
+        System.out.println("The maximum possible flow is "
+                + m.fordFulkerson(adjacencyMatrix));
     }
 }
