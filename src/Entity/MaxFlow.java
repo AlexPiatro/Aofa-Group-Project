@@ -1,9 +1,9 @@
-// Java program for implementation of Ford Fulkerson
+package Entity;// Java program for implementation of Ford Fulkerson
 // algorithm
 import java.lang.*;
 import java.util.LinkedList;
 
-class MaxFlow {
+public class MaxFlow {
     static final int V = 10; // Number of vertices in graph
 
     /* Returns true if there is a path from source 's' to
@@ -53,7 +53,7 @@ class MaxFlow {
 
     // Returns the maximum flow from s to t in the given
     // graph
-    int fordFulkerson(int[][] graph) {
+    public int fordFulkerson(int[][] graph) {
         int u, v;
 
         // Create a residual graph and fill the residual
