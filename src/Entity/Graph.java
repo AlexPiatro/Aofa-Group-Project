@@ -1,11 +1,10 @@
 package Entity;
 
-import View.Main;
-
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Graph {
+    //The Graph is stored in the form of an adjacency matrix for which the weight are represented by integers > 0 and 0 values == there is no path.
     private int[][] adjacencyMatrix = {
             {0, 35, 21, 0, 0, 0, 0, 0, 0, 0},
             {0, 0, 24, 30, 18, 0, 0, 0, 0, 0},
@@ -19,14 +18,17 @@ public class Graph {
             {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
     };
 
+    //Getter
     public int[][] getAdjacencyMatrix() {
         return adjacencyMatrix;
     }
 
+    //Setter
     public void setAdjacencyMatrix(int[][] adjacencyMatrix) {
         this.adjacencyMatrix = adjacencyMatrix;
     }
 
+    //Update class prompts for the user to input the index of the row and column the user wishes to update
     public void UpdateGraph() {
 
 
@@ -34,19 +36,33 @@ public class Graph {
 
         int row;
         do {
-            System.out.print("Enter the row index of the weight to update (0-8): ");
-            row = sc.nextInt();
-            if (row == 9 || row <0){
-                System.out.print("Error. Row Input is Equal to 9\n");
+            System.out.print("\nEnter The Row Index of The Weight To Update [0-8]: ");
+            try{
+                row = sc.nextInt();
+                if (row == 9 || row <0){
+                    System.out.print("Error: Input is Invalid!!!\n");
+                }
+            }catch(InputMismatchException im){
+                System.out.println("Input Mismatch: Please Input an Integer.");
+                sc.next();
+                row = -1;
             }
         }while (row == 9 || row <0);
 
         int col;
         do {
-            System.out.print("Enter the column index of the weight to update (0-9): ");
-            col = sc.nextInt();
-            if (adjacencyMatrix[row][col] == 0){
-                System.out.print("Error. Row Input is Equal to 0\n");
+            System.out.print("Enter The Column Index of The Weight To Update [0-9]: ");
+            try{
+                col = sc.nextInt();
+                if (adjacencyMatrix[row][col] == 0){
+                    System.out.print("Error. Row Input is Equal to 0\n");
+                }
+            }catch(InputMismatchException im){
+                System.out.println("Input Mismatch: Please Input an Integer.");
+                System.out.println("\n");
+                sc.next();
+                //Sets col variable to a number less than 0 to not exit loop.
+                col = -1;
             }
         } while (adjacencyMatrix[row][col] == 0);
 
@@ -54,28 +70,42 @@ public class Graph {
 
        do {
            System.out.print("Enter the new weight value: ");
-           weight = sc.nextInt();
-           if (weight < 0) {
-               System.out.println("Invalid input. Please enter an integer value.");
+           try{
+               weight = sc.nextInt();
+               if (weight < 0) {
+                   System.out.println("Invalid input. Please enter an integer value.\n");
+               }
+           }catch (InputMismatchException im){
+               System.out.println("Input Mismatch: Please Input an Integer!!!\n");
+               sc.next();
+               weight = -1;
            }
        }while (weight < 0);
 
-
-
-// update weight and display updated graph
         adjacencyMatrix[row][col] = weight;
-        System.out.println("Updated graph:");
-        for (int[] graph : adjacencyMatrix) {
-            for (int i : graph) {
-                System.out.print(i + " ");
-            }
-            System.out.println();
-        }
 
-        sc.close();
 
         System.out.println("\n");
 
+
+    }
+
+    public void DisplayGraph(){
+        System.out.print("   ");
+        for (int i = 0; i < adjacencyMatrix.length; i++) {
+            System.out.printf("%-3d", i);
+        }
+        System.out.println();
+        for (int i = 0; i < adjacencyMatrix.length; i++) {
+            System.out.printf("%-3d", i);
+            for (int j = 0; j < adjacencyMatrix[i].length; j++) {
+                System.out.printf("%-3d", adjacencyMatrix[i][j]);
+            }
+            System.out.println();
+        }
+    }
+
+    public void DisplayMaxFlow(){
         MaxFlow m = new MaxFlow();
         System.out.println("The maximum possible flow is "
                 + m.fordFulkerson(adjacencyMatrix));
