@@ -2,7 +2,12 @@ package Entity;// Java program for implementation of Ford Fulkerson
 // algorithm
 import java.lang.*;
 import java.util.LinkedList;
-
+/*
+Mario Cross - 1901901
+Derval Reid - 2000185
+Andre Grant - 1908921
+Norval Excell - 1903461
+*/
 public class MaxFlow {
     static final int V = 10; // Number of vertices in graph
 

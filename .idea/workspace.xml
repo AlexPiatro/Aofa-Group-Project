@@ -5,11 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8702aee9-9fb3-4077-84be-334f1a04cdd4" name="Changes" comment="added to mario feature branch">
-      <change afterPath="$PROJECT_DIR$/src/View/Citation.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Graph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Graph.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/GuiInterface.form" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/GuiInterface.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/MaxFlow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/MaxFlow.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/View/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -171,7 +169,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680416557734</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="added to mario feature branch">
+      <created>1680579297178</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1680579297178</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

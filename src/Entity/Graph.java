@@ -1,5 +1,10 @@
 package Entity;
-
+/*
+Mario Cross - 1901901
+Derval Reid - 2000185
+Andre Grant - 1908921
+Norval Excell - 1903461
+*/
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -34,37 +39,37 @@ public class Graph {
 
         Scanner sc = new Scanner(System.in);
 
-        int row;
+        int col;
         do {
-            System.out.print("\nEnter The Row Index of The Weight To Update [0-8]: ");
+            System.out.print("\nEnter The Column Index of The Weight To Update [0-8]: ");
             try{
-                row = sc.nextInt();
-                if (row == 9 || row <0){
+                col = sc.nextInt();
+                if (col == 9 || col <0){
                     System.out.print("Error: Input is Invalid!!!\n");
                 }
             }catch(InputMismatchException im){
                 System.out.println("Input Mismatch: Please Input an Integer.");
                 sc.next();
-                row = -1;
+                col = -1;
             }
-        }while (row == 9 || row <0);
+        }while (col == 9 || col <0);
 
-        int col;
+        int row;
         do {
-            System.out.print("Enter The Column Index of The Weight To Update [0-9]: ");
+            System.out.print("Enter The Row Index of The Weight To Update [0-9]: ");
             try{
-                col = sc.nextInt();
-                if (adjacencyMatrix[row][col] == 0){
-                    System.out.print("Error. Row Input is Equal to 0\n");
+                row = sc.nextInt();
+                if (adjacencyMatrix[col][row] == 0){
+                    System.out.print("Error. Column Input is Equal to 0\n");
                 }
             }catch(InputMismatchException im){
                 System.out.println("Input Mismatch: Please Input an Integer.");
                 System.out.println("\n");
                 sc.next();
-                //Sets col variable to a number less than 0 to not exit loop.
-                col = -1;
+
+                row = -1;
             }
-        } while (adjacencyMatrix[row][col] == 0);
+        } while (adjacencyMatrix[col][row] == 0);
 
         int weight;
 
@@ -82,7 +87,8 @@ public class Graph {
            }
        }while (weight < 0);
 
-        adjacencyMatrix[row][col] = weight;
+       //Assign New Weight to Graph.
+        adjacencyMatrix[col][row] = weight;
 
 
         System.out.println("\n");
@@ -107,7 +113,7 @@ public class Graph {
 
     public void DisplayMaxFlow(){
         MaxFlow m = new MaxFlow();
-        System.out.println("The maximum possible flow is "
+        System.out.println("The Maximum Possible Flow Is "
                 + m.fordFulkerson(adjacencyMatrix));
     }
 }

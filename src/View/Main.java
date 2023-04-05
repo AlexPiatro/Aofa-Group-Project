@@ -1,5 +1,10 @@
 package View;// Driver program to test above functions
-
+/*
+Mario Cross - 1901901
+Derval Reid - 2000185
+Andre Grant - 1908921
+Norval Excell - 1903461
+*/
 
 import Entity.MaxFlow;
 import Entity.Graph;
@@ -44,15 +49,13 @@ public class Main {
             }while (ch > 4 || ch < 0);
 
 
-            switch (ch)
-            {
-                case 1:
+            switch (ch) {
+                case 1 ->
                     //Displays The Adjacency Matrix of the graph with Labelled Vertices.
-                    grp.DisplayGraph();
-                    break;
-                case 2:
+                        grp.DisplayGraph();
+                case 2 -> {
                     char Sch = 'Y';
-                    while(Sch == 'Y' || Sch == 'y' ){
+                    while (Sch == 'Y' || Sch == 'y') {
                         grp.DisplayGraph();
                         grp.UpdateGraph();
 
@@ -62,13 +65,12 @@ public class Main {
                         System.out.println("\nDo You Want To Update Another Weight? Enter 'Y' or 'N':\n");
                         Sch = scan.next().charAt(0);
                     }
-                    break;
-                case 3:
-                    grp.DisplayMaxFlow();
-                    break;
-                case 4:
+                }
+                case 3 -> grp.DisplayMaxFlow();
+                case 4 -> {
                     System.out.println("Program Terminated.....");
                     System.exit(0);
+                }
             }
             System.out.println("\nDo you want to Continue 'Y' or 'y'\n");
             System.out.println("Or Press and Key to Terminate\n");
